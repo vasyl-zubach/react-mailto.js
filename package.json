@@ -1,0 +1,60 @@
+{
+  "name": "react-mailto.js",
+  "version": "1.0.0",
+  "description": "React MailTo component for easy creation fully configured mailto links",
+  "main": "dist/react-mailto.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register",
+    "test-watch": "./node_modules/.bin/mocha --compilers js:babel-core/register --watch",
+    "build": "./node_modules/babel-cli/bin/babel.js ./src/react-mailto.js -o ./dist/react-mailto.js",
+    "build-min": "./node_modules/babel-cli/bin/babel.js ./src/react-mailto.js -o ./dist/react-mailto.min.js --minified",
+    "start": "./node_modules/.bin/static .",
+    "coverage": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- --recursive && babel-istanbul check-coverage",
+    "done": "npm run build && npm run build-min && npm run coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devlio-team/react-mailto.js.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "email",
+    "mailto"
+  ],
+  "author": {
+    "name": "Vasyl Zubach",
+    "email": "i@tjrus.com",
+    "url": "http://tjrus.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devlio-team/react-mailto.js/issues"
+  },
+  "homepage": "https://github.com/devlio-team/react-mailto.js#readme",
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-istanbul": "^0.6.0",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "chai": "^3.5.0",
+    "chai-string": "^1.1.6",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^4.0.0",
+    "eslint-plugin-react": "^3.16.1",
+    "jsdom": "^8.0.1",
+    "mocha": "^2.4.5",
+    "mocha-jsdom": "^1.0.0",
+    "node-static": "^0.7.7",
+    "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "sinon": "^1.17.3",
+    "webpack": "^1.12.12"
+  }
+}
