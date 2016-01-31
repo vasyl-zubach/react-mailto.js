@@ -1,4 +1,4 @@
-# react-mailto.js
+# react-mailto.js [![Build Status](https://travis-ci.org/devlio-team/react-mailto.js.svg?branch=master)](https://travis-ci.org/devlio-team/react-mailto.js)
 
 ## Install
 ```npm install react-mailto.js --save-dev```
