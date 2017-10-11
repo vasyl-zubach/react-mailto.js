@@ -5,7 +5,7 @@ import ReactDOMServer from 'react-dom/server';
 import Mailto from '../src/react-mailto.js';
 
 // Test utils
-import ReactTestUtils from 'react-addons-test-utils';
+import ReactTestUtils from 'react-dom/test-utils';
 import sinon from 'sinon';
 import chai, {expect} from 'chai';
 import chaiString from 'chai-string';

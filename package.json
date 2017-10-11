@@ -51,10 +51,13 @@
     "mocha": "^2.4.5",
     "mocha-jsdom": "^1.0.0",
     "node-static": "^0.7.7",
-    "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
-    "react-dom": "^0.14.7",
     "sinon": "^1.17.3",
     "webpack": "^1.12.12"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "prop-types": "^15.6.0"
   }
 }
