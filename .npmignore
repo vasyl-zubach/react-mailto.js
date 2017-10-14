@@ -1,0 +1,14 @@
+.cache
+.storybook
+.vscode
+
+node_modules
+test
+src
+stories
+
+.babelrc
+.editorconfig
+.nvmrc
+.travis.yml
+.jest.config.json

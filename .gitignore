@@ -1,6 +1,8 @@
 node_modules
 coverage
 examples
-.idea
 
+.idea
+.cache
+.vscode
 npm-debug.log

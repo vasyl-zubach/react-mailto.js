@@ -1,0 +1,36 @@
+{
+    "verbose": true,
+    "automock": true,
+    "transformIgnorePatterns": [
+        "/node_modules/"
+    ],
+    "transform": {
+        "\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "unmockedModulePathPatterns": [
+        "prop-types",
+        "react"
+    ],
+    "setupTestFrameworkScriptFile": "./test/test.setup.js",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "src/**/*.{js,jsx}",
+        "!**/node_modules/**",
+        "!**/dist/**"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+        "json",
+        "lcov",
+        "text",
+        "html"
+    ],
+    "coverageThreshold": {
+        "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+        }
+    }
+}
