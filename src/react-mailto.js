@@ -56,9 +56,6 @@ export default class Mailto extends Component {
     };
 
     static displayName = 'Mailto';
-    static defaultProps = {
-        event: 'click'
-    };
 
     render() {
         const {to, cc, bcc, subject, body, secure, children, ...props} = this.props;
