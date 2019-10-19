@@ -19,5 +19,10 @@ module.exports = {
     //     // shippedProposals: true,
     //   }
     // ]
-  ]
+  ],
+  env: {
+    test: {
+      presets: ['@babel/env']
+    }
+  }
 };

@@ -6,9 +6,9 @@
   "main:src": "src/react-mailto.tsx",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "prepare": "npm run build",
-    "build": "mkdir dist && babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
-    "test": "jest --testRegex=\".test.(j|t)sx?\" --config=./jest.config.json",
+    "prepare": "mkdir dist && npm run build",
+    "build": "babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
+    "test": "NODE_ENV=test jest --testRegex=\".test.(j|t)sx?$\" --config=./jest.config.json",
     "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
