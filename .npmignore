@@ -5,10 +5,14 @@
 node_modules
 test
 stories
+coverage
 
 babel.config.js
 .editorconfig
 .nvmrc
 .travis.yml
 jest.config.json
+.prettierrc.js
+.DS_Store
+tsconfig.json
 

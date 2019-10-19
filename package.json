@@ -2,12 +2,12 @@
   "name": "react-mailto.js",
   "version": "2.0.0",
   "description": "React MailTo component for easy creation fully configured mailto links",
-  "main": "dist/react-mailto.js",
-  "main:src": "src/react-mailto.tsx",
+  "main": "dist/index.js",
+  "main:src": "src/index.tsx",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "prepare": "mkdir dist && npm run build",
-    "build": "babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
+    "prepare": "rm -rf ./dist && mkdir dist && npm run build && npm run build:tsc",
+    "build": "babel ./src/* --out-dir ./dist --extensions '.ts,.tsx'",
+    "build:tsc": "tsc --declaration --emitDeclarationOnly",
     "test": "NODE_ENV=test jest --testRegex=\".test.(j|t)sx?$\" --config=./jest.config.json",
     "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook"

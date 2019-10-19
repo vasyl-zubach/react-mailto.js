@@ -4,6 +4,8 @@
     "target": "esnext",
     "module": "commonjs",
 
+    "declaration": true,
+
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
@@ -13,7 +15,6 @@
     "downlevelIteration": true,
     "lib": ["es2017", "dom", "es6", "scripthost", "es2015", "es2016"],
     "skipLibCheck": true,
-    "sourceMap": true,
 
     // Stricting rules
     // `alwaysStrict`: true - does not do anything if we have manual overrides of strict tules
@@ -28,7 +29,10 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "allowUnreachableCode": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "sourceMap": true,
+    "outDir": "./dist"
   },
   "typeRoots": ["node_modules/@types"],
   "include": ["./src/**/*"],

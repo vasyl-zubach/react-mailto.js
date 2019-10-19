@@ -1,7 +1,6 @@
 import React from 'react';
 // Component
-import Mailto from '../src/react-mailto';
-import { Props } from '../src/types';
+import Mailto, { Props } from '../src';
 
 // Test Utills
 import { shallow } from 'enzyme';
