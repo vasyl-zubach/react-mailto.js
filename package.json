@@ -5,9 +5,10 @@
   "main": "dist/react-mailto.js",
   "main:src": "src/react-mailto.tsx",
   "scripts": {
+    "clean": "rm -rf ./dist",
     "prepare": "npm run build && npm run build-min",
+    "re-build": "npm run clean && mkdir dist && npm run build",
     "build": "babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
-    "build-min": "babel ./src/react-mailto.tsx -o ./dist/react-mailto.min.js --minified",
     "test": "jest --testRegex=\".test.(j|t)sx?\" --config=./jest.config.json",
     "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook"
