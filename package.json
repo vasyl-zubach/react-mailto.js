@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "prepare": "npm run build && npm run build-min",
-    "build": "npm run clean && mkdir dist && babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
+    "build": "mkdir dist && babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
     "test": "jest --testRegex=\".test.(j|t)sx?\" --config=./jest.config.json",
     "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook"
