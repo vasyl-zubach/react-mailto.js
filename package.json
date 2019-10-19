@@ -6,7 +6,7 @@
   "main:src": "src/react-mailto.tsx",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "prepare": "npm run build && npm run build-min",
+    "prepare": "npm run build",
     "build": "mkdir dist && babel ./src/react-mailto.tsx -o ./dist/react-mailto.js",
     "test": "jest --testRegex=\".test.(j|t)sx?\" --config=./jest.config.json",
     "test:watch": "npm test -- --watch",
