@@ -4,11 +4,11 @@
 
 node_modules
 test
-src
 stories
 
-.babelrc
+babel.config.js
 .editorconfig
 .nvmrc
 .travis.yml
-.jest.config.json
+jest.config.json
+
