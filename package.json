@@ -1,6 +1,6 @@
 {
   "name": "react-mailto.js",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "React MailTo component for easy creation fully configured mailto links",
   "main": "dist/react-mailto.js",
   "main:src": "src/react-mailto.tsx",
