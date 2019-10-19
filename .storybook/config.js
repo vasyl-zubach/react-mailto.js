@@ -1,8 +1,6 @@
 import { configure } from '@storybook/react';
+
+import '@storybook/addon-actions/register';
 import '@storybook/addon-console';
 
-function loadStories() {
-  require('../stories/react-mailto.story.js');
-}
-
-configure(loadStories, module);
+configure(require.context('../stories', true, /\.story\.(j|t)sx?$/), module);

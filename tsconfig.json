@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+
+    "downlevelIteration": true,
+    "lib": ["es2017", "dom", "es6", "scripthost", "es2015", "es2016"],
+    "skipLibCheck": true,
+    "sourceMap": true,
+
+    // Stricting rules
+    // `alwaysStrict`: true - does not do anything if we have manual overrides of strict tules
+    // We should aim for having just this rule, instead of all the others below
+    // "alwaysStrict": true,
+
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": false,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "allowUnreachableCode": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "typeRoots": ["node_modules/@types"],
+  "include": ["./src/**/*"],
+  "exclude": ["**/*.js", "**/dist/**", "node_modules"]
+}
