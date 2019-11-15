@@ -32,7 +32,7 @@ exports[`Story: customStyles 1`] = `
 
 exports[`Story: maximumConfig 1`] = `
 <a
-  href="javascript:void(0)"
+  href=""
   onClick={[Function]}
 >
   Email us

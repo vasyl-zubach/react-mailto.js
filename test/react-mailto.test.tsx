@@ -149,7 +149,7 @@ describe('#props: ', () => {
   describe('`secure`', () => {
     it('adds onClick event mailto handler to hide real emails', () => {
       const renderedTree = shallowRender({ secure: true });
-      expect(renderedTree.prop('href')).toEqual('javascript:void(0)');
+      expect(renderedTree.prop('href')).toEqual('');
       renderedTree.prop('onClick')(event);
       expect(typeof renderedTree.prop('onClick')).toBe('function');
     });
