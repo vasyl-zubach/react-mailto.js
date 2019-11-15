@@ -6,7 +6,7 @@
   "transform": {
     "\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
   },
-  "unmockedModulePathPatterns": ["prop-types", "react"],
+  "unmockedModulePathPatterns": ["react"],
   "setupFilesAfterEnv": ["./test/test.setup.js"],
   "collectCoverage": true,
   "collectCoverageFrom": [
