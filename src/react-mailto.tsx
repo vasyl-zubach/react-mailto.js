@@ -22,9 +22,11 @@ function prepareLink({ subject, to, body, cc, bcc }: Partial<Props>) {
   return `${to}?${link.join('&')}&_c=${Date.now()}`;
 }
 
-const handleSecureClick = (to: string, onClick = (e) => {}) => (e) => {
+const handleSecureClick = (to: string, onClick) => (e) => {
   e.preventDefault();
-  onClick(e);
+  if (onClick) {
+    onClick(e);
+  }
   window.location.assign(to);
 };
 
@@ -39,21 +41,16 @@ const Mailto = ({
   ...props
 }: Props & HTMLAttributes<{}>) => {
   const link = prepareLink({ to, cc, bcc, subject, body });
+  const isSecure = secure === true;
   const href = `mailto:${link}`;
-  const secureProps =
-    secure === true
-      ? {
-          onClick: handleSecureClick(href, props.onClick),
-          href: 'javascript:void(0)'
-        }
-      : {};
-  const linkProps = {
-    ...props,
-    href,
-    ...secureProps
-  };
-
-  return <a {...linkProps}>{children}</a>;
+  const onClick = isSecure
+    ? handleSecureClick(href, props.onClick)
+    : props.onClick;
+  return (
+    <a {...props} href={isSecure ? '' : href} onClick={onClick}>
+      {children}
+    </a>
+  );
 };
 
 export default Mailto;
