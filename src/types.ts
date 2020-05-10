@@ -1,3 +1,5 @@
+import { SyntheticEvent, ReactNode } from 'react';
+
 export interface Props {
   /** String or Array of email recepients */
   to: string | string[];
@@ -9,10 +11,10 @@ export interface Props {
   subject?: string;
   /** Email body */
   body?: string;
-  /** Additional onClick handler */
-  onClick?: () => void;
+  /** Additional onClick handler for the link */
+  onClick?: (event: SyntheticEvent<HTMLAnchorElement>) => void;
 
   secure?: boolean;
 
-  children: React.ReactNode;
+  children: ReactNode;
 }

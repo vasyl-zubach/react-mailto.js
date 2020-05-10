@@ -13,7 +13,7 @@
     "experimentalDecorators": true,
 
     "downlevelIteration": true,
-    "lib": ["es2017", "dom", "es6", "scripthost", "es2015", "es2016"],
+    "lib": ["dom", "es6", "scripthost"],
     "skipLibCheck": true,
 
     // Stricting rules
@@ -24,11 +24,11 @@
     "strictPropertyInitialization": true,
     "strictFunctionTypes": false,
     "strictNullChecks": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "allowUnreachableCode": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
 
     "sourceMap": true,
