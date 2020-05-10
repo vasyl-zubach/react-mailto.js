@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
-    '@babel/transform-react-jsx'
-    // '@babel/plugin-transform-runtime'
+    '@babel/transform-react-jsx',
+    '@babel/plugin-proposal-optional-chaining'
   ],
   presets: [
     '@babel/react',
