@@ -1,7 +1,7 @@
 # react-mailto.js
 
 [![npm version](https://badge.fury.io/js/react-mailto.js.svg)](https://badge.fury.io/js/react-mailto.js)
-[![Build Status](https://travis-ci.org/vasyl-zubach/react-mailto.js.svg?branch=master)](https://travis-ci.org/vasyl-zubach/react-mailto.js)
+[![Build Status](https://travis-ci.com/vasyl-zubach/react-mailto.js.svg?branch=master)](https://travis-ci.com/vasyl-zubach/react-mailto.js)
 
 ## Install
 
