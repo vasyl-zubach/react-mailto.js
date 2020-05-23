@@ -8,7 +8,7 @@ export default { title: 'Mailto' };
 
 export const basicConfig = () => (
   <Mailto
-    to="tjrus@example.com"
+    to="vasyl@example.com"
     subject="Some email subject"
     body={['This is the body of your message', 'Multilined also'].join('\n')}
   >
@@ -19,9 +19,9 @@ export const basicConfig = () => (
 export const maximumConfig = () => (
   <Mailto
     secure={true}
-    to={['tjrus@example.com', 'other@example.com']}
-    cc={['tjrus@example.com', 'other@example.com']}
-    bcc={['tjrus@example.com', 'other@example.com']}
+    to={['vasyl@example.com', 'other@example.com']}
+    cc={['vasyl@example.com', 'other@example.com']}
+    bcc={['vasyl@example.com', 'other@example.com']}
     subject="Some email subject"
     body={[
       'Some body',
@@ -36,13 +36,13 @@ export const maximumConfig = () => (
 );
 
 export const customStyles = () => (
-  <Mailto to="tjrus@example.com" style={{ border: '1px #000 solid' }}>
+  <Mailto to="vasyl@example.com" style={{ border: '1px #000 solid' }}>
     Contact us
   </Mailto>
 );
 
 export const additionalAttributes = () => (
-  <Mailto to="tjrus@example.com" data-additional="test">
+  <Mailto to="vasyl@example.com" data-additional="test">
     Contact us
   </Mailto>
 );

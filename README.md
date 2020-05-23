@@ -1,6 +1,7 @@
 # react-mailto.js
 
-[![npm version](https://badge.fury.io/js/react-mailto.js.svg)](https://badge.fury.io/js/react-mailto.js) [![Build Status](https://travis-ci.org/devlio-team/react-mailto.js.svg?branch=master)](https://travis-ci.org/devlio-team/react-mailto.js)
+[![npm version](https://badge.fury.io/js/react-mailto.js.svg)](https://badge.fury.io/js/react-mailto.js)
+[![Build Status](https://travis-ci.org/vasyl-zubach/react-mailto.js.svg?branch=master)](https://travis-ci.org/vasyl-zubach/react-mailto.js)
 
 ## Install
 
@@ -30,7 +31,7 @@ Add `<Mailto />` component to your code and use properties described below to co
 ```jsx
 <Mailto
   secure={true}
-  to="tjrus@example.com"
+  to="vasyl@zubach.com"
   subject="Some email subject"
   body={['This is the body of your message', 'Multilined also'].join('\n')}
 >
@@ -43,7 +44,7 @@ Add `<Mailto />` component to your code and use properties described below to co
 ```jsx
 <Mailto
   secure={true}
-  to={['tjrus@example.com', 'other@example.com']}
+  to={['vasyl@example.com', 'other@example.com']}
   cc={['elena@example.com', 'other@example.com']}
   bcc={['elena@example.com', 'other@example.com']}
   subject="Some email subject"

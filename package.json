@@ -1,6 +1,6 @@
 {
   "name": "react-mailto.js",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "React MailTo component for easy creation fully configured mailto links",
   "main": "dist/index.js",
   "main:src": "src/index.tsx",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devlio-team/react-mailto.js.git"
+    "url": "git+https://github.com/vasyl-zubach/react-mailto.js.git"
   },
   "keywords": [
     "react",
@@ -26,17 +26,17 @@
   ],
   "author": {
     "name": "Vasyl Zubach",
-    "email": "i@tjrus.com",
-    "url": "http://tjrus.com"
+    "email": "vasyl@zubach.com",
+    "url": "https://zubach.com"
   },
   "engines": {
     "node": ">=4"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/devlio-team/react-mailto.js/issues"
+    "url": "https://github.com/vasyl-zubach/react-mailto.js/issues"
   },
-  "homepage": "https://github.com/devlio-team/react-mailto.js#readme",
+  "homepage": "https://github.com/vasyl-zubach/react-mailto.js#readme",
   "peerDependencies": {
     "react": "0.14.0 || 15.x || 16.x",
     "@babel/runtime": "7.x"
@@ -60,7 +60,7 @@
     "@storybook/react": "^5.3.18",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^25.2.1",
-    "@types/react": "16.9.34",
+    "@types/react": "^16.9.35",
     "@types/systemjs": "^6.1.0",
     "@types/window-or-global": "^1.0.1",
     "babel-loader": "^8.1.0",

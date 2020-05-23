@@ -3,7 +3,7 @@
 exports[`Story: additionalAttributes 1`] = `
 <a
   data-additional="test"
-  href="mailto:tjrus@example.com?&_c=1234567890"
+  href="mailto:vasyl@example.com?&_c=1234567890"
 >
   Contact us
 </a>
@@ -11,7 +11,7 @@ exports[`Story: additionalAttributes 1`] = `
 
 exports[`Story: basicConfig 1`] = `
 <a
-  href="mailto:tjrus@example.com?subject=Some%20email%20subject&body=This%20is%20the%20body%20of%20your%20message%0AMultilined%20also&_c=1234567890"
+  href="mailto:vasyl@example.com?subject=Some%20email%20subject&body=This%20is%20the%20body%20of%20your%20message%0AMultilined%20also&_c=1234567890"
 >
   Email us
 </a>
@@ -19,7 +19,7 @@ exports[`Story: basicConfig 1`] = `
 
 exports[`Story: customStyles 1`] = `
 <a
-  href="mailto:tjrus@example.com?&_c=1234567890"
+  href="mailto:vasyl@example.com?&_c=1234567890"
   style={
     Object {
       "border": "1px #000 solid",

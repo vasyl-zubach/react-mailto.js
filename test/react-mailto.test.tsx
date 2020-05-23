@@ -47,7 +47,7 @@ describe('#render', () => {
 describe('#props: ', () => {
   describe('`to` (required)', () => {
     it('as a string', () => {
-      const props = { to: 'i@tjrus.com' };
+      const props = { to: 'vasyl@zubach.com' };
       const renderedTree = shallowRender(props);
       expect(renderedTree.prop('href').startsWith(`mailto:${props.to}`)).toBe(
         true
@@ -55,7 +55,7 @@ describe('#props: ', () => {
     });
 
     it('an array of strings', () => {
-      const props = { to: ['i@tjrus.com', 'tj@devlio.com'] };
+      const props = { to: ['vasyl@zubach.com', 'example@zubach.com'] };
       const renderedTree = shallowRender(props);
       expect(
         renderedTree.prop('href').startsWith(`mailto:${props.to.join(',')}`)
@@ -101,13 +101,13 @@ describe('#props: ', () => {
 
   describe('`cc`', () => {
     it('as a string', () => {
-      const props = { cc: 'i@tjrus.com' };
+      const props = { cc: 'vasyl@zubach.com' };
       const renderedTree = shallowRender(props);
       expect(renderedTree.prop('href')).toContain(`cc=${props.cc}`);
     });
 
     it('an array of strings', () => {
-      const props = { cc: ['i@tjrus.com', 'tj@devlio.com'] };
+      const props = { cc: ['vasyl@zubach.com', 'example@zubach.com'] };
       const renderedTree = shallowRender(props);
       expect(renderedTree.prop('href')).toContain(`cc=${props.cc.join(',')}`);
     });
@@ -119,13 +119,13 @@ describe('#props: ', () => {
 
   describe('`bcc`', () => {
     it('as a string', () => {
-      const props = { bcc: 'i@tjrus.com' };
+      const props = { bcc: 'vasyl@zubach.com' };
       const renderedTree = shallowRender(props);
       expect(renderedTree.prop('href')).toContain(`bcc=${props.bcc}`);
     });
 
     it('an array of strings', () => {
-      const props = { bcc: ['i@tjrus.com', 'tj@devlio.com'] };
+      const props = { bcc: ['vasyl@zubach.com', 'example@zubach.com'] };
       const renderedTree = shallowRender(props);
       expect(renderedTree.prop('href')).toContain(`bcc=${props.bcc.join(',')}`);
     });
