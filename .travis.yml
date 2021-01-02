@@ -5,8 +5,8 @@ cache:
   directories:
     - node_modules
 install:
-  - npm i
+  - yarn
 script:
-  - npm run build
-  - npm run build:tsc
-  - npm test
+  - yarn build
+  - yarn build:tsc
+  - yarn test
