@@ -13,7 +13,8 @@
     "build:tsc": "tsc --declaration --emitDeclarationOnly",
     "test": "NODE_ENV=test jest --testRegex=\".test.(j|t)sx?$\" --config=./jest.config.json",
     "test:watch": "npm test -- --watch",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "postpublish" : "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
   },
   "repository": {
     "type": "git",
