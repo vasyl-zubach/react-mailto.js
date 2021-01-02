@@ -5,7 +5,13 @@ import { Props } from './types';
 
 const encode = encodeURIComponent;
 
-function prepareLink({ subject, to, body, cc, bcc }: Partial<Props>) {
+const getMailtoLink = function getMailtoLink({
+  subject,
+  to,
+  body,
+  cc,
+  bcc
+}: Partial<Props>) {
   const link: (string | null)[] = [
     cc ? `cc=${cc}` : null,
     bcc ? `bcc=${bcc}` : null,
@@ -14,7 +20,7 @@ function prepareLink({ subject, to, body, cc, bcc }: Partial<Props>) {
   ].filter(Boolean);
 
   return `${to}?${link.join('&')}&_c=${Date.now()}`;
-}
+};
 
 const handleSecureClick = (
   to: string,
@@ -36,7 +42,7 @@ export const Mailto = ({
   secure,
   ...props
 }: Props & HTMLAttributes<HTMLAnchorElement>) => {
-  const link = prepareLink({ to, cc, bcc, subject, body });
+  const link = getMailtoLink({ to, cc, bcc, subject, body });
   const isSecure = secure === true;
   const href = `mailto:${link}`;
   const onClick = isSecure
