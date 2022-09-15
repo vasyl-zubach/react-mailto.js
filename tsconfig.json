@@ -1,40 +1,43 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-
-    "declaration": true,
-
-    "moduleResolution": "node",
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-
-    "downlevelIteration": true,
-    "lib": ["dom", "es6", "scripthost"],
-    "skipLibCheck": true,
-
-    // Stricting rules
-    // `alwaysStrict`: true - does not do anything if we have manual overrides of strict tules
-    // We should aim for having just this rule, instead of all the others below
-    // "alwaysStrict": true,
-
-    "strictPropertyInitialization": true,
-    "strictFunctionTypes": false,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "allowUnreachableCode": false,
-    "noFallthroughCasesInSwitch": true,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+
+    "checkJs": true,
+
+    "importHelpers": true,
+
+    "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    // "sourceMap": true,
+    "noImplicitAny": false,
+    "jsx": "react",
+    "strict": true,
+    "isolatedModules": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "esModuleInterop": true,
+    "lib": [
+      "es2020",
+      "dom",
+      // "scripthost",
+      "dom.iterable"
+      // "esnext.asynciterable"
+    ],
 
     "sourceMap": true,
     "outDir": "./dist"
   },
   "typeRoots": ["node_modules/@types"],
-  "include": ["./src/**/*"],
-  "exclude": ["**/*.js", "**/dist/**", "node_modules"]
+  //   "include": ["src", "stories", "test"],
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"]
 }

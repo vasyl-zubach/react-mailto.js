@@ -21,7 +21,7 @@ exports[`Story: customStyles 1`] = `
 <a
   href="mailto:vasyl@example.com?&_c=1234567890"
   style={
-    Object {
+    {
       "border": "1px #000 solid",
     }
   }

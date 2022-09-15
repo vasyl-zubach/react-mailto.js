@@ -1,9 +1,10 @@
 {
   "name": "react-mailto.js",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "React MailTo component for easy creation of fully configured mailto links",
-  "main": "dist/index.js",
-  "main:src": "src/index.tsx",
+  "exports": "./dist/index.js",
+  "src": "./src/index.tsx",
+  "type": "module",
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./.storybook/.cache && rm -rf ./coverage",
@@ -12,7 +13,6 @@
     "build": "babel ./src/* --out-dir ./dist --extensions '.ts,.tsx'",
     "build:tsc": "tsc --declaration --emitDeclarationOnly",
     "test": "NODE_ENV=test jest --testRegex=\".test.(j|t)sx?$\" --config=./jest.config.json",
-    "test:watch": "npm test -- --watch",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
   },
@@ -32,7 +32,7 @@
     "url": "https://zubach.com"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=16"
   },
   "license": "MIT",
   "bugs": {
@@ -41,38 +41,37 @@
   "homepage": "https://github.com/vasyl-zubach/react-mailto.js#readme",
   "peerDependencies": {
     "@babel/runtime": "7.x",
-    "react": "16.x || 17.x"
+    "react": "16.x || 17.x || 18.x"
   },
   "dependencies": {
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
-    "@babel/node": "^7.14.9",
-    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
-    "@babel/plugin-transform-react-jsx": "^7.14.9",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/preset-typescript": "^7.15.0",
-    "@storybook/addon-actions": "^6.3.7",
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
+    "@babel/plugin-transform-react-jsx": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-console": "^1.2.3",
-    "@storybook/react": "^6.3.7",
-    "@types/enzyme": "^3.10.9",
-    "@types/jest": "^27.0.1",
-    "@types/react": "^17.0.18",
+    "@storybook/react": "^6.5.12",
+    "@types/jest": "^29.0.0",
+    "@types/react": "^18.0.17",
     "@types/systemjs": "^6.1.1",
     "@types/window-or-global": "^1.0.4",
-    "babel-jest": "^27.0.6",
-    "babel-loader": "^8.2.2",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "jest": "^27.0.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-test-renderer": "^17.0.2",
-    "typescript": "^4.3.5"
+    "babel-jest": "^29.0.0",
+    "babel-loader": "^8.2.5",
+    "jest": "^29.0.2",
+    "jest-environment-jsdom": "^29.0.2",
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.2"
   }
 }
