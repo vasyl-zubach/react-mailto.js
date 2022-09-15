@@ -1,0 +1,10 @@
+node_modules
+coverage
+examples
+dist
+
+.idea
+.cache
+.vscode
+npm-debug.log
+.cache

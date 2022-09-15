@@ -22,16 +22,14 @@ const getMailtoLink = function getMailtoLink({
   return `${to}?${link.join('&')}&_c=${Date.now()}`;
 };
 
-const handleSecureClick = (
-  to: string,
-  onClick?: (event: SyntheticEvent<HTMLAnchorElement>) => void
-) => (event: SyntheticEvent<HTMLAnchorElement>) => {
-  event.preventDefault();
-  onClick?.(event);
+const handleSecureClick =
+  (to: string, onClick?: (event: SyntheticEvent<HTMLAnchorElement>) => void) =>
+  (event: SyntheticEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    onClick?.(event);
 
-  // @ts-ignore
-  window?.location?.assign?.(to);
-};
+    window?.location?.assign?.(to);
+  };
 
 export const Mailto = ({
   to,

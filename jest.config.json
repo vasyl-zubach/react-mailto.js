@@ -4,16 +4,20 @@
   "resetMocks": true,
   "transformIgnorePatterns": ["/node_modules/"],
   "transform": {
-    "\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    "\\.(js|jsx|ts|tsx)$": "babel-jest"
   },
-  "unmockedModulePathPatterns": ["react"],
-  "setupFilesAfterEnv": ["./test/test.setup.js"],
-  "collectCoverage": true,
+  "unmockedModulePathPatterns": [
+    "react",
+    "react-test-renderer",
+    "@testing-library/*"
+  ],
+  "collectCoverage": false,
   "collectCoverageFrom": [
     "src/**/*.{js,jsx,ts,tsx}",
     "!**/node_modules/**",
     "!**/dist/**"
   ],
+
   "coverageDirectory": "coverage",
   "coverageReporters": ["json", "lcov", "text", "html"],
   "coverageThreshold": {

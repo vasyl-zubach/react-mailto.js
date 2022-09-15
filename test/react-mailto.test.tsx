@@ -1,19 +1,10 @@
 import React from 'react';
+import { describe, expect, test } from '@jest/globals';
+import renderer from 'react-test-renderer';
+import window from 'window-or-global';
+
 // Component
-import Mailto, { Props } from '../src';
-
-// Test Utills
-import { shallow } from 'enzyme';
-
-jest.mock('window-or-global', () => ({
-  __esModule: true,
-  default: {
-    encodeURIComponent: encodeURIComponent,
-    location: {
-      assign: jest.fn()
-    }
-  }
-}));
+import Mailto, { Props } from '../src/index';
 
 const event = {
   preventDefault: jest.fn(),
@@ -24,8 +15,8 @@ const defaultProps = {
   to: 'test@example.com'
 };
 
-const shallowRender = (props: Partial<Props> = {}) =>
-  shallow(
+const doRender = (props: Partial<Props> = {}) =>
+  renderer.create(
     <Mailto {...defaultProps} {...props}>
       {props.children || 'The link'}
     </Mailto>
@@ -33,153 +24,173 @@ const shallowRender = (props: Partial<Props> = {}) =>
 
 const encode = encodeURIComponent;
 
+jest.mock('window-or-global', () => ({
+  __esModule: true,
+  default: {
+    encodeURIComponent,
+    location: {
+      assign: jest.fn()
+    }
+  }
+}));
+
+jest.useFakeTimers({ now: 123456789000 });
+
 describe('#render', () => {
-  it('returns link (<a>)', () => {
-    const renderedTree = shallowRender();
-    expect(renderedTree.type()).toEqual('a');
+  test('returns link (<a>)', () => {
+    const el = doRender();
+    expect(el.toJSON().type).toBe('a');
   });
-  it('has cache drop parameter', () => {
-    const renderedTree = shallowRender();
-    expect(renderedTree.props().href).toContain('_c=');
+  test('has cache drop parameter', () => {
+    const el = doRender();
+    expect(el.toJSON().props.href).toContain('_c=');
   });
 });
 
 describe('#props: ', () => {
   describe('`to` (required)', () => {
-    it('as a string', () => {
+    test('as a string', () => {
       const props = { to: 'vasyl@zubach.com' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href').startsWith(`mailto:${props.to}`)).toBe(
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href.startsWith(`mailto:${props.to}`)).toBe(
         true
       );
     });
 
-    it('an array of strings', () => {
+    test('an array of strings', () => {
       const props = { to: ['vasyl@zubach.com', 'example@zubach.com'] };
-      const renderedTree = shallowRender(props);
+      const renderedTree = doRender(props).toJSON();
       expect(
-        renderedTree.prop('href').startsWith(`mailto:${props.to.join(',')}`)
+        renderedTree.props.href.startsWith(`mailto:${props.to.join(',')}`)
       ).toBe(true);
     });
   });
 
   describe('`subject`', () => {
-    it('as a string', () => {
+    test('as a string', () => {
       const props = { subject: 'some-subject' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`subject=${props.subject}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`subject=${props.subject}`);
     });
-    it('encoded properly to be a part of the string', () => {
+    test('encoded properly to be a part of the string', () => {
       const props = { subject: 'some subject' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(
         `subject=${encode(props.subject)}`
       );
     });
-    it('not appear in a href parameter when not passed', () => {
-      const renderedTree = shallowRender();
-      expect(renderedTree.prop('href')).not.toContain('subject');
+    test('not appear in a href parameter when not passed', () => {
+      const renderedTree = doRender().toJSON();
+      expect(renderedTree.props.href).not.toContain('subject');
     });
   });
 
   describe('`body`', () => {
-    it('as a string', () => {
+    test('as a string', () => {
       const props = { body: 'some-body' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`body=${props.body}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`body=${props.body}`);
     });
-    it('encoded properly to be a part of the string', () => {
+    test('encoded properly to be a part of the string', () => {
       const props = { body: 'some body' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`body=${encode(props.body)}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`body=${encode(props.body)}`);
     });
-    it('not appear in a href parameter when not passed', () => {
-      const renderedTree = shallowRender();
-      expect(renderedTree.prop('href')).not.toContain('body');
+    test('not appear in a href parameter when not passed', () => {
+      const renderedTree = doRender().toJSON();
+      expect(renderedTree.props.href).not.toContain('body');
     });
   });
 
   describe('`cc`', () => {
-    it('as a string', () => {
+    test('as a string', () => {
       const props = { cc: 'vasyl@zubach.com' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`cc=${props.cc}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`cc=${props.cc}`);
     });
 
-    it('an array of strings', () => {
+    test('an array of strings', () => {
       const props = { cc: ['vasyl@zubach.com', 'example@zubach.com'] };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`cc=${props.cc.join(',')}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`cc=${props.cc.join(',')}`);
     });
-    it('not appear in a href parameter when not passed', () => {
-      const renderedTree = shallowRender();
-      expect(renderedTree.prop('href')).not.toContain('cc');
+    test('not appear in a href parameter when not passed', () => {
+      const renderedTree = doRender().toJSON();
+      expect(renderedTree.props.href).not.toContain('cc');
     });
   });
 
   describe('`bcc`', () => {
-    it('as a string', () => {
+    test('as a string', () => {
       const props = { bcc: 'vasyl@zubach.com' };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`bcc=${props.bcc}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`bcc=${props.bcc}`);
     });
 
-    it('an array of strings', () => {
+    test('an array of strings', () => {
       const props = { bcc: ['vasyl@zubach.com', 'example@zubach.com'] };
-      const renderedTree = shallowRender(props);
-      expect(renderedTree.prop('href')).toContain(`bcc=${props.bcc.join(',')}`);
+      const renderedTree = doRender(props).toJSON();
+      expect(renderedTree.props.href).toContain(`bcc=${props.bcc.join(',')}`);
     });
-    it('not appear in a href parameter when not passed', () => {
-      const renderedTree = shallowRender();
-      expect(renderedTree.prop('href')).not.toContain('bcc');
+    test('not appear in a href parameter when not passed', () => {
+      const renderedTree = doRender().toJSON();
+      expect(renderedTree.props.href).not.toContain('bcc');
     });
   });
 
   describe('`onClick`', () => {
-    it('should be triggered when link is clicked', () => {
-      let testVar = 0;
-      const onClick = () => testVar++;
-      const renderedTree = shallowRender({ onClick });
-      renderedTree.prop('onClick').call(null, event);
-      expect(typeof renderedTree.prop('onClick')).toEqual('function');
-      expect(testVar).toBe(1);
+    test('should be triggered when link is clicked', () => {
+      const onClick = jest.fn();
+      const renderedTree = doRender({ onClick }).toJSON();
+      renderedTree.props.onClick.call(null, event);
+      expect(onClick).toBeCalledTimes(1);
     });
   });
 
   describe('`secure`', () => {
-    it('adds onClick event mailto handler to hide real emails', () => {
-      const renderedTree = shallowRender({ secure: true });
-      expect(renderedTree.prop('href')).toEqual('');
-      renderedTree.prop('onClick')(event);
-      expect(typeof renderedTree.prop('onClick')).toBe('function');
-    });
-    it('if onClick also was a passed property - new handler will call it before handling mailto', () => {
-      const onClick = jest.fn();
-      const renderedTree = shallowRender({ secure: true, onClick });
-      renderedTree.prop('onClick')(event);
-      expect(typeof renderedTree.prop('onClick')).toBe('function');
+    test('adds onClick event mailto handler to hide real emails', () => {
+      const renderedTree = doRender({ secure: true }).toJSON();
+      expect(renderedTree.props.href).toEqual('');
+      renderedTree.props.onClick(event);
+      expect(window.location.assign).toBeCalledTimes(1);
+      expect(window.location.assign).toBeCalledWith(
+        'mailto:test@example.com?&_c=123456789000'
+      );
     });
 
-    it('onClick preventing event default behaviour', () => {
+    test('if onClick also was a passed property - new handler will call it before handling mailto', () => {
       const onClick = jest.fn();
-      const renderedTree = shallowRender({ secure: true, onClick });
-      renderedTree.prop('onClick')(event);
+      const renderedTree = doRender({ secure: true, onClick }).toJSON();
+      renderedTree.props.onClick(event);
+      expect(window.location.assign).toBeCalledTimes(1);
+      expect(window.location.assign).toBeCalledWith(
+        'mailto:test@example.com?&_c=123456789000'
+      );
+
+      expect(onClick).toBeCalledTimes(1);
+      expect(onClick).toBeCalledWith(event);
+    });
+
+    test('onClick preventing event default behaviour', () => {
+      const onClick = jest.fn();
+      const renderedTree = doRender({ secure: true, onClick }).toJSON();
+      renderedTree.props.onClick(event);
       expect(event.preventDefault).toHaveBeenCalledTimes(1);
     });
 
-    it("onClick doesn't stop propagating event", () => {
+    test("onClick doesn't stop propagating event", () => {
       const onClick = jest.fn();
-      const renderedTree = shallowRender({ secure: true, onClick });
-      renderedTree.prop('onClick').call(null, event);
+      const renderedTree = doRender({ secure: true, onClick }).toJSON();
+      renderedTree.props.onClick.call(null, event);
       expect(event.stopPropagation).toHaveBeenCalledTimes(0);
     });
   });
 
   describe('children', () => {
-    it('should be passed as a link text', () => {
+    test('should be passed as a link text', () => {
       const children = 'link text';
-      const renderedTree = shallowRender({ children });
-      expect(renderedTree.prop('children')).toEqual(children);
+      const renderedTree = doRender({ children }).toJSON();
+      expect(renderedTree.children[0]).toBe(children);
     });
   });
 });

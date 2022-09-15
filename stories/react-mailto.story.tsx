@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 // Components
-import Mailto from '../src';
+import Mailto from '../src/index';
 
 export default { title: 'Mailto' };
 

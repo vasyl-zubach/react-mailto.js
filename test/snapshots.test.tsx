@@ -1,3 +1,5 @@
+import { expect, test } from '@jest/globals';
+
 import React from 'react';
 
 import renderer from 'react-test-renderer';
@@ -11,7 +13,7 @@ Object.keys(Stories)
   .forEach((storyTitle) => {
     test(`Story: ${storyTitle}`, () => {
       const Component = Stories[storyTitle];
-      const tree = renderer.create(<Component />).toJSON();
+      const tree = renderer.create(<Component />);
       expect(tree).toMatchSnapshot();
     });
   });
