@@ -1,6 +1,6 @@
 {
   "name": "react-mailto.js",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "React MailTo component for easy creation of fully configured mailto links",
   "exports": {
     ".": "./dist/index.js"
