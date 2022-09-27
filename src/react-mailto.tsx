@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, SyntheticEvent } from 'react';
 import window from 'window-or-global';
 
-import { Props } from './types';
+import { Props } from './types.js';
 
 const encode = encodeURIComponent;
 
