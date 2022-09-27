@@ -6,6 +6,7 @@
   "transform": {
     "\\.(js|jsx|ts|tsx)$": "babel-jest"
   },
+  "extensionsToTreatAsEsm": [".ts"],
   "unmockedModulePathPatterns": [
     "react",
     "react-test-renderer",
@@ -17,6 +18,10 @@
     "!**/node_modules/**",
     "!**/dist/**"
   ],
+
+  "moduleNameMapper": {
+    "(.+)\\.js$": "$1"
+  },
 
   "coverageDirectory": "coverage",
   "coverageReporters": ["json", "lcov", "text", "html"],
